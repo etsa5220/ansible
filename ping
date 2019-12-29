@@ -1,2 +1,3 @@
 ansible all -m shell -a "free -h"
  ansible all -m shell -a "date"
+ ansible all -m ping
