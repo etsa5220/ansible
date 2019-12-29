@@ -1,0 +1,44 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: yes
+
+  tasks:
+  - name: affichage fichiers td-agent.conf AVANT
+    command: cat /tmp/td-agent.conf
+    register: before
+    ignore_errors: yes
+
+  - name: affichage AVANT
+    debug:
+       var: "before"
+
+  - name: a task that only happens if record_transformer exists in td-agent.conf
+    when: before.stdout.find('record_transformer') != -1
+    debug: msg="record_transformer exists"
+
+  - name: Insert conf add hostname before <match *.**> line
+    blockinfile:
+      path: /tmp/td-agent.conf
+      insertbefore: "<match"
+      block: |
+          <filter *.**>
+          @type record_transformer
+          <record>
+            hostname ${hostname}
+          </record>
+          </filter>
+    when: before.stdout.find('record_transformer') != -1
+
+  - name: recherche pour affichage td-agent.conf APRES
+    command: cat /tmp/td-agent.conf
+    register: after
+    ignore_errors: yes
+
+  - name: affichage APRES
+    debug:
+       var: "after"
+
+
+
+
