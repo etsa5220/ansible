@@ -1,0 +1,12 @@
+# htop.yml
+---
+- hosts: all
+  tasks:
+    - name: 1. install htop
+      portage: name=htop state=present
+
+    - name: update all packages
+      apt:
+        update_cache: true
+        upgrade: dist
+#      when: raspi_config_update_packages
