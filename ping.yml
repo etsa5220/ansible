@@ -1,3 +1,6 @@
-ansible all -m shell -a "free -h"
- ansible all -m shell -a "date"
- ansible all -m ping
+---
+
+- hosts: all
+  gather_facts: false
+  tasks:
+- ping:
