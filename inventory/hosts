@@ -1,14 +1,15 @@
 
 [raspberry]
-192.168.1.61
-192.168.1.12
+raspberry2 ansible_ssh_host=192.168.1.61
+raspberrypi ansible_ssh_host=192.168.1.12
 [linux]
-192.168.1.23
+
+thierry-X75VC ansible_ssh_host=192.168.1.23
 
 [target]
-192.168.1.61
-192.168.1.12
-192.168.1.23
+raspberry2 ansible_ssh_host=192.168.1.61
+raspberrypi ansible_ssh_host=192.168.1.12
+thierry-X75VC ansible_ssh_host=192.168.1.23
 
 [all:vars]
 ansible_ssh_user=ansible
