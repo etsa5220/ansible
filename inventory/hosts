@@ -2,8 +2,8 @@
 [raspberry]
 raspberry2 ansible_ssh_host=192.168.1.61
 raspberrypi ansible_ssh_host=192.168.1.12
-[linux]
 
+[linux]
 thierry-X75VC ansible_ssh_host=192.168.1.23
 
 [target]
