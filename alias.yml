@@ -6,7 +6,10 @@
       become_user: root
       lineinfile:
         path: /root/.bashrc
-        line: alias ll=`ls –l`
+        line: # some more ls aliases
+        line: alias ll='ls -alF'
+        line: alias la='ls -A'
+        line: alias l='ls -CF'
         create: yes
     - name: Display the config
       debug:
