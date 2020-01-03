@@ -1,16 +1,22 @@
 ---
 - hosts: raspberry
   tasks:
-    - name: Add a line to a file if the file does not exist, without passing regex
+    - name: Add some lines
       become: yes
       become_user: root
-      lineinfile:
+      blockinfile:
         path: /root/.bashrc
-        line: # some more ls aliases
-        line: alias ll='ls -alF'
-        line: alias la='ls -A'
-        line: alias l='ls -CF'
-        create: yes
+        block: |
+        # some more ls aliases
+        alias ll='ls -alF'
+        alias la='ls -A'
+        alias l='ls -CF'
+
+
     - name: Display the config
       debug:
         msg: "The hostname is ?"
+
+
+
+   
