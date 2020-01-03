@@ -1,0 +1,6 @@
+---
+- name: Transfer and execute a script
+  hosts: localhost
+  tasks:
+    - name: Execute the script
+      script: script.sh
