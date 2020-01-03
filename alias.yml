@@ -6,7 +6,7 @@
       become_user: root
       lineinfile:
         path: /root/.bashrc
-        line: alias ll=’ls –l’
+        line: alias ll=`ls –l`
         create: yes
     - name: Display the config
       debug:
