@@ -1,6 +1,6 @@
 ---
 - name: Transfer and execute a script
-  hosts: 192.168.1.12
+  hosts: localhost
   tasks:
     - name: Execute the script
       script: script.sh
