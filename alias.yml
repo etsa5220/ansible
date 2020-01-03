@@ -1,13 +1,13 @@
 ---
-- hosts: localhost
+- hosts: <Your ansible host>
   tasks:
     - name: Add a line to a file if the file does not exist, without passing regex
-    become: yes
-    become_user: root
-    lineinfile:
-      path: /root/.bashrc
-      line: alias ll=’ls –l’
-      create: yes
+      become: yes
+      become_user: root
+      lineinfile:
+        path: /root/.bashrc
+        line: alias ll=’ls –l’
+        create: yes
     - name: Display the config
       debug:
         msg: "The hostname is {{hostname}}
