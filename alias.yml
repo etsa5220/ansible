@@ -1,5 +1,5 @@
 ---
-- hosts: <Your ansible host>
+- hosts: localhost
   tasks:
     - name: Add a line to a file if the file does not exist, without passing regex
       become: yes
