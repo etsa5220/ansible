@@ -10,4 +10,4 @@
         create: yes
     - name: Display the config
       debug:
-        msg: "The hostname is {{hostname}}
+        msg: "The hostname is ?"
